@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>约课</title>
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="../bin/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <!--头部-->
+    <div class="header">
+        <div class="hd-content">
+            <a href="index.html" id="logo">约 课</a>
+            <input type="text" id="search" placeholder="搜索你感兴趣的内容">
+            <input type="image" src="../src/images/搜索.png">
+            <div class="vipAndOptions">
+                <a href="#"><img src="../src/images/实心会员.png"/></a>
+                <a href="#"><img src="../src/images/设置.png"/></a>
+            </div>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="content container">
+        <!--左侧导航-->
+        <ul class="sort container">
+            <a href="index.html"><li><img src="../src/images/首页.png">首页</li></a>
+            <a href="空教室查询.html"><li><img src="../src/images/会议室预约.png">空教室查询</li></a>
+            <a href="个人主页.html"><li><img src="../src/images/个人主页.png">我的主页</li></a>
+            <a href="约自习.html"><li><img src="../src/images/自习室查询.png">约自习</li></a>
+            <a href="下课聊.html"><li><img src="../src/images/聊天.png">下课聊</li></a>
+            <a href="表白墙.html"><li><img src="../src/images/爱心.png">表白墙</li></a>
+        </ul>
+        <!--主体内容-->
+        <ul class="test">
+            <li>!</li>
+            <li>!</li>
+            <li>!</li>
+        </ul>
+    </div>
+    <script>
+        var test=document.getElementsByClassName("test")[0];
+        console.log(test.children.length);
+    </script>
+</body>
+</html>

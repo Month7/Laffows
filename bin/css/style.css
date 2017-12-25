@@ -1,0 +1,384 @@
+@charset "utf-8";
+body{
+    /* background: #E9EDF0; */
+    margin: 0px;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.container{
+    padding: 0;
+    margin: 0px;
+}
+/*头部导航栏*/
+.header{
+    width: 100%;
+    height: 65px;
+    background:#227DC5; 
+    
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hd-content{
+    height: 70%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+#logo{
+    color: #fff;  
+    font-size: 30px;
+    font-family: 宋体;
+    text-decoration: none;
+}
+#search{
+    margin-left: 200px;
+    border: none;
+    height: 38px;
+    width: 350px;
+    border-radius: 2px;
+}
+input[type="image"]{
+    margin-left:-35px;
+    width: 30px;
+    height: 30px;
+}
+.vipAndOptions{
+    margin-left: 300px;
+}
+.vipAndOptions img{
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+.content{
+    display: flex;
+}
+.sort{
+    width: 13%;
+    height: 900px;
+    border-right: 1px solid gray;
+    padding: 0px;
+}
+.sort li{
+    list-style-type: none;
+    cursor: pointer;
+    height: 66px;
+    line-height: 66px;
+    text-align: center;
+}
+.sort li:hover{
+    background: rgb(207, 217, 227);
+}
+.sort li img{
+    height: 50%;
+    border-radius: 5px;
+}
+/**
+表白墙
+*/
+#love-header{
+    height: 60px;
+    background: #EB717D;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.love-banner{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#love-header a{
+    padding: 3px;
+    color: #fff;
+    text-decoration: none;
+}
+#love-header a::before{
+    content: "[";
+    opacity: 0;
+}
+#love-content{
+    width: 85%;
+    margin: 20px auto;
+    position: relative;
+}
+.card{
+    padding: 10px;
+    border: 1px solid #EB717D;
+    border-radius: 5px;
+    float: left;
+    width: 300px;
+    margin: 10px;
+
+}
+
+.card p{
+    margin: 3px;
+    color: gray;
+    font-size: 14px;
+}
+.card p:first-child{
+   font-size: 18px;
+   font-weight: bold;
+   color: black;
+}
+.card-extra-content{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.card-extra-content img{
+    height: 16px;
+    width: 16px;
+}
+.glyphicon-heart{
+    cursor: pointer;
+}
+.glyphicon-heart:hover{
+    color: red;
+}
+.card-more{
+    cursor: pointer;
+    position: relative;
+   
+}
+.card-more img{
+    transition: all 0.5s;
+}
+.card-more:hover img{
+    transform: rotate(180deg);
+}
+
+.card-more-drop{
+    position: absolute;
+    display: none;
+    right: 0;
+   
+    z-index: 10;
+}
+.card-commit{
+    height: 30px;
+    background: black;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+}
+.card-yue{
+    height: 30px;
+    color: #fff;
+    background: green;
+    line-height: 30px;
+    text-align: center;
+}
+
+/*约自习*/
+.study{
+    width: 70%;
+    margin-left: 30%;
+    padding: 20px;
+    background: #fff;
+}
+.study div:first-child{
+    display: flex;
+    justify-content: space-between;
+}
+.study-banner{
+   margin: 20px;
+}
+.study-header{
+    font-size: 25px;
+    font-weight: bold;
+}
+.study-header img{
+    height: 25px;
+    width: 25px;
+}
+.study-list{
+    padding: 0;
+}
+.study-list li{
+    list-style-type: none;
+    border-bottom: 1px solid gray;
+    padding: 10px;
+}
+.study-list li div:first-child{
+    display: flex;
+    justify-content: space-between;
+}
+.pullDown img{
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+.list-drop{
+    display: none;
+}
+.list-drop>div{
+    display: flex;
+    justify-content: space-between;
+}
+button{
+    background: #00AFF0;
+    color: #fff;
+    border: none;
+}
+.study-banner a{
+    padding: 10px;
+}
+.selected{
+    background: #00AFF0;
+}
+/*个人主页*/
+.me{
+    /* padding-top:20px; */
+    width: 70%;
+    margin: 20px auto 0;
+    
+}
+.me-head{
+    position: relative;
+}
+.me-head-bg{
+    height: 300px;
+    overflow: hidden;
+    border-radius: 2px;
+    box-sizing:border-box;
+    margin: 0px;
+}
+.me-head-bg img{
+    /* height: 100%;
+    width: 100%; */
+    width: 100%;
+    margin: 0px;
+}
+.me-head-data{
+    margin: 0px;
+    background: #fff;
+    height: 100px;
+    border-radius: 2px;
+}
+/*头像*/
+.proAndData{
+    background: #fff;
+    position: absolute;
+    top:200px;
+    left: 50px;
+    display: flex;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+.portrait img{
+    border: 10px solid #fff;
+    width: 150px;
+    height: 150px;
+}
+.protrait-data{
+    float: left;
+    background: #fff;
+}
+.person-data{
+    padding-left: 230px;
+}
+.signature img{
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+h3{
+    margin: 0;
+}
+#editData{
+    border-radius: 2px;
+    margin-right: 20px;
+    height: 30px;   
+    text-align: center;
+    line-height: 30px;
+}
+.history{
+    margin-top:20px;
+    padding: 20px;
+    background: #fff;
+}
+.history div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+}
+.invitationBg{
+    position: relative;
+}
+.invitation{
+    display: none;
+}
+.activity,
+.invitation{
+    padding: 0;
+    margin: 0;
+}
+.activity li,
+.invitation li{
+    list-style-type: none;
+    padding: 20px;
+}
+.activity li p{
+    color: gray;
+    font-size: 14px;
+}
+.activity li a,
+.invitation li a{
+    font-weight: bold;
+    font-size: 18px;
+}
+.his-nav{
+    border-bottom: 2px solid #eeeeee;
+    margin: 0!important;
+}
+.his-nav span{
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 3px;
+    padding: 4px;
+}
+.his-nav span:hover{
+    border-bottom: 2px solid #227DC5;
+}
+.focus span{
+    padding: 10px;
+}
+/* .focusOn{
+    border-right: 1px solid #eeeeee;
+} */
+/*空教室*/
+.emptyRooms{
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+.emptyRooms td{
+    /* border: 1px solid black; */
+    text-align: center;
+}
+.emptyRooms tbody tr:nth-child(odd){
+    background: #F9F9F9;
+}
+.emptyRooms thead td{
+   
+    /* background: gray; */
+    font-size: 18px;
+    padding: 10px;
+    background-color: #00AFF0;
+    color: #fff;
+}
+.roomBody{
+    width: 70%;
+    margin: 10px auto;
+    text-align: center;
+}
