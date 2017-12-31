@@ -1,0 +1,507 @@
+@charset "utf-8";
+*{
+    margin: 0px;
+    padding: 0px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.selected{
+    background: #04C3E0;
+}
+.header{
+    width: 100%;
+    height: 40px;
+    background: #04B1CC;
+    position: relative;
+    margin-bottom: 20px;
+}
+.header a{
+    color: #fff;
+    display: inline-block;
+    padding: 0 15px;
+    line-height: 40px;
+    font-size: 14px;
+    z-index: 99;
+    /* border: 1px solid #fff; */
+    /*不知道这为什么会有边距*/
+    margin-right:  -4px!important;
+}
+.header a:link,
+.header a:visited{
+    color: #fff;
+    display: inline-block;
+    padding: 0 15px;
+    line-height: 40px;
+    font-size: 14px;
+    text-decoration: none;
+}
+.header a:hover{
+    background: #04C3E0;
+}
+.header a:active{
+    text-decoration: none;
+}
+.header img{
+    width: 25px;
+    height: 25px;
+}
+.logo{
+    color: #fff;
+    line-height: 40px;
+}
+.nav-study-children{
+    display: none;
+    position: absolute;
+    top:40px;
+    margin-top:0px;
+    background: #04C3E0;
+    z-index: 99;
+}
+.nav-study-children a{
+    display: block!important;
+   
+}
+.nav-study-children a:link,
+.nav-study-children a:visited{
+    display: block!important;
+}
+.nav-study-children a:hover{
+    background: #04B1CC;
+    display: block!important;
+    margin: 0px;
+}
+.nav-study-children a:active{
+
+}
+#nav-friends-children{
+    z-index: 99;
+    display: none;
+    position: absolute;
+    top:40px;
+    margin-top:0px;
+    background: #04C3E0;
+}
+#nav-friends-children a{
+    display: block;
+}
+#nav-friends-children a:hover{
+    background: #04B1CC;
+}
+/*主页*/
+.index-bg img{
+    width: 100%;
+    height: 100%;
+}
+.index-bg{
+    background: url(../../images/自习室.jpg);
+    width: 100%;
+    height: 600px;
+}
+/*空教室*/
+.emptyRooms{
+    width: 100%;
+}
+.emptyRooms td{
+    text-align: center;
+}
+.emptyRooms tbody tr:nth-child(odd){
+    background: #F9F9F9;
+}
+.emptyRooms thead td{
+    font-size: 18px;
+    padding: 10px;
+    background-color: #00AFF0;
+    color: #fff;
+}
+/*下课聊*/
+.navbar-right a{
+	color: #444
+}
+.navbar-header{
+	padding-left:140px;
+	padding-right: 50px;
+	font-weight: bold;
+}
+.btn_search{
+	position: relative;
+	left:-28px;
+	cursor: pointer;
+}
+.my_edit{
+    margin-top:80px; 
+}
+#edit_form{
+	background: #fff;
+	padding-bottom: 8px;
+	border-radius: 3px;
+    border: 1px solid #eee;
+}
+.container_bg{
+	background: #dd6572;
+	background-color:rgba(255, 255, 255, 0.5);
+	padding-bottom: 30px; 
+}
+#content{
+ 	height:95px;
+ 	border-style:solid;
+ 	border-width:1px;
+ 	border-color:#AEEEEE}
+#content img{
+
+}
+.emoji{
+	background: url(../../images/face.png)  no-repeat;
+	padding:1px 0 10px 25px;
+	cursor: pointer;
+	font-size: 13px;
+}
+.pic{
+	background: url(../../images/pic.png)  no-repeat;
+	margin-left: 10px;
+	padding:1px 0 10px 25px;
+	cursor: pointer;
+	font-size: 13px;
+}
+.myEmoji{
+	background: #fff;
+	padding: 15px;
+	border-radius: 3px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 20px 1px rgba(0,0,0,0.2);
+    position:absolute;
+    top:40px;
+    z-index: 9999;
+    display: none
+}
+.myEmoji img{
+	 border: 1px solid #ccc;
+	 padding: 4px;
+}
+#send{
+	 margin-top:-5px ;
+	 background: #e0620d;
+	 color: #fff;
+	 padding: 8px 30px
+}
+.message{
+	background:#fff;
+	height: 100%;
+	margin-top:5px;
+	border: 1px solid #eee;
+	padding :15px;
+}
+.msg_content{
+
+	margin-top:10px;
+}
+.sort{
+	color:#777;
+}
+.part_right{
+	margin-top: 80px;
+	padding-left: 20px;
+}
+.inform{
+	background: #fff;
+	border-radius: 3px;
+    border: 1px solid #eee;
+}
+.inform img{
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	margin-top: 20px;
+}
+.my_inform{
+	padding: 10px;
+}
+.item_hot{
+	padding: 10px 20px
+}
+.item_num{
+	color: #999
+}
+.mypic{
+	margin-top:5px;
+	width: 100%;
+	height: 200px;
+}
+.mypic:hover{
+	cursor:url('../img/enlarge.png'),auto;
+}
+.part_hot{
+	background: #fff;
+	margin-top:5px;
+	border: 1px solid #eee;
+}
+
+@media screen and (max-width: 699px) and (min-width: 320px) {
+    .my_edit{
+        margin-top:160px; 
+    }
+    .item_hot{
+        font-size: 12px;
+}
+	.part_right{
+		margin-top: 10px;
+		padding-left: 0px;
+	}
+	.btn_search{
+		padding: 0px;
+	}
+	.navbar-header{
+		padding:0;
+	}
+	.item_hot{
+		padding: 15px 25px
+	}
+	.inform{
+		padding-bottom: 15px;
+	}
+}
+/**
+表白墙
+*/
+#love-header{
+    height: 60px;
+    background: #EB717D;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.love-banner{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#love-header a{
+    padding: 3px;
+    color: #fff;
+    text-decoration: none;
+}
+#love-header a::before{
+    content: "[";
+    opacity: 0;
+}
+#love-content{
+    width: 85%;
+    margin: 20px auto;
+    position: relative;
+}
+.card{
+    padding: 10px;
+    border: 1px solid #EB717D;
+    border-radius: 5px;
+    float: left;
+    width: 300px;
+    margin: 10px;
+}
+.card p{
+    margin: 3px;
+    color: gray;
+    font-size: 14px;
+}
+.card p:first-child{
+   font-size: 18px;
+   font-weight: bold;
+   color: black;
+}
+.card-extra-content{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.card-extra-content img{
+    height: 16px;
+    width: 16px;
+}
+.glyphicon-heart{
+    cursor: pointer;
+}
+.glyphicon-heart:hover{
+    color: red;
+}
+.card-more{
+    cursor: pointer;
+    position: relative;
+   
+}
+.card-more img{
+    transition: all 0.5s;
+}
+.card-more:hover img{
+    transform: rotate(180deg);
+}
+
+.card-more-drop{
+    position: absolute;
+    display: none;
+    right: 0;
+   
+    z-index: 10;
+}
+.card-commit{
+    height: 30px;
+    background: #00AFF0;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 1px;
+}
+.card-yue{
+    height: 30px;
+    color: #fff;
+    background: lightcoral;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 1px;
+}
+/*约自习*/
+.studyMessage{
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    padding: 10px;
+}
+.studyMessage:nth-child(odd){
+    background: #00AFF0;
+
+}
+.sM-title{
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+.btnGroup{
+    display: flex;
+    justify-content: space-between;
+}
+.studyMessage button{
+    border: none;
+    border-radius: 2px;
+    background: #00BC9B;
+    color: #fff;
+    padding: 5px 20px;
+    font-weight: normal;
+}
+hr{
+    margin: 5px;
+}
+
+
+/*个人主页*/
+.me{
+    width: 100%;
+}
+.me-head{
+    position: relative;
+}
+.me-head-bg{
+    height: 300px;
+    overflow: hidden;
+    border-radius: 2px;
+    box-sizing:border-box;
+    margin: 0px;
+}
+.me-head-bg img{
+    width: 100%;
+    margin: 0px;
+}
+.me-head-data{
+    margin: 0px;
+    background: #fff;
+    height: 100px;
+    border-radius: 2px;
+}
+/*头像*/
+.proAndData{
+    background: #fff;
+    position: absolute;
+    top:200px;
+    left: 50px;
+    display: flex;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+.portrait img{
+    border: 10px solid #fff;
+    width: 150px;
+    height: 150px;
+}
+.protrait-data{
+    float: left;
+    background: #fff;
+}
+.person-data{
+    padding-left: 230px;
+}
+.signature img{
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+h3{
+    margin: 0;
+}
+#editData{
+    border-radius: 2px;
+    margin-right: 20px;
+    height: 30px;   
+    text-align: center;
+    line-height: 30px;
+}
+.history{
+    margin-top:20px;
+    padding: 20px;
+    background: #fff;
+}
+.history div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+}
+.invitationBg{
+    position: relative;
+}
+.invitation{
+    display: none;
+}
+.activity,
+.invitation{
+    padding: 0;
+    margin: 0;
+}
+.activity li,
+.invitation li{
+    list-style-type: none;
+    padding: 20px;
+}
+.activity li p{
+    color: gray;
+    font-size: 14px;
+}
+.activity li a,
+.invitation li a{
+    font-weight: bold;
+    font-size: 18px;
+}
+.his-nav{
+    border-bottom: 2px solid #eeeeee;
+    margin: 0!important;
+}
+.his-nav span{
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 3px;
+    padding: 4px;
+}
+.his-nav span:hover{
+    border-bottom: 2px solid #227DC5;
+}
+.focus span{
+    padding: 10px;
+}
