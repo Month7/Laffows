@@ -12,6 +12,19 @@
 .current:hover{
     color: #fff;
 }
+.current2{
+    display: block;
+    position: absolute;
+    top:349px;
+    background: #27AE60;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+}
+.current2:hover{
+    color: #fff;
+}
 .header{
     margin: 0;
 }
@@ -45,7 +58,9 @@
     padding-top: 15px;
 }
 .ui-dialog-l40{
-    height: 40px;line-height: 40px;
+    margin: 10px;
+    height: 40px;
+    line-height: 40px;
     text-align: right;
 }
 
@@ -77,4 +92,15 @@
     width: 100%;height:100%;background: #000;
     position: absolute;top: 0px;height: 0px;z-index: 8000;
     opacity:0.4; filter: Alpha(opacity=40);
+}
+.htmleaf-demo h2{
+    color: #fff;
+    margin: 0;
+    text-align: center;
+    padding-top:200px;
+}
+.htmleaf-demo p{
+    color: #fff;
+    margin-top:10px;
+    text-align: center;
 }

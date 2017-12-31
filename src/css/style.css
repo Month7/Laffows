@@ -6,6 +6,15 @@
 a{
     text-decoration: none;
 }
+button{
+    background: #00AFF0;
+    color: #fff;
+    border: none;
+    height: 30px;
+    text-align: center;
+    padding: 0 10px;
+    line-height: 30px;
+}
 a:hover{
     text-decoration: none;
 }
@@ -91,6 +100,47 @@ a:hover{
 #nav-friends-children a:hover{
     background: #04B1CC;
 }
+/*页脚*/
+.footer{
+    width: 100%;
+    height: 90px;
+    background-color: rgb(47, 47, 47);
+    padding: 10px;
+}
+.footer_child{
+    height: 60px;
+    width: 1000px;
+    margin: auto;
+    background-color: rgb(47, 47, 47);
+    
+}
+.footer_child img{
+    margin-top:10px;
+}
+.footer_child_right{
+    width: 440px;
+    height: 60px;
+    float: right;
+}
+.footer_child_right p{
+    margin-left: 160px;
+    color: #939393;
+    margin-top: 5px;
+}
+.footer_child_right a{
+    text-decoration: none;
+    color:#939393;
+}
+.footer_child_right span{
+    color: #939393;
+}
+.footer_child_right a:link,
+.footer_child_right a:visited{
+    color: #939393;
+}
+.footer_child_right a:hover{
+    color: yellow;
+}
 /*主页*/
 .index-bg img{
     width: 100%;
@@ -98,8 +148,19 @@ a:hover{
 }
 .index-bg{
     background: url(../../images/自习室.jpg);
+   
+    position: absolute;
     width: 100%;
     height: 600px;
+    z-index: 1;
+    border: 1px solid black;
+}
+.test{
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.6);
+    position: relative;
+    z-index: 99;
+   
 }
 /*空教室*/
 .emptyRooms{
@@ -292,6 +353,7 @@ a:hover{
 #love-content{
     width: 85%;
     margin: 20px auto;
+    
     position: relative;
 }
 .card{
@@ -365,7 +427,7 @@ a:hover{
 /*约自习*/
 .studyMessage{
     border: 1px solid #eeeeee;
-    border-radius: 5px;
+   
     padding: 10px;
 }
 .studyMessage:nth-child(odd){
@@ -504,4 +566,94 @@ h3{
 }
 .focus span{
     padding: 10px;
+}
+/*站内信*/
+.letter-list{
+    border-bottom: 1px solid gray;
+}
+
+.letter-list:hover{
+    background: #04C3E0;
+}
+.letter-list td{
+    padding: 20px 15px;
+    width: 60px;
+   
+}
+.letter-message{
+    width: 600px!important;
+}
+.letter-list img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.letter-intro{
+    background: #04C3E0;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+}
+/*发送信息窗口*/
+.sendMessage{
+    display: none;
+    position: fixed;
+    top:30%;
+    left: 40%;
+    
+    background: #fff;
+    z-index: 99;
+}
+.zhezhao{
+    display: none;
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 50;
+}
+.send-head{
+    background: #EEEEEE;
+    padding: 10px;
+}
+.send-footer{
+    display: flex;
+    justify-content: space-between;
+    background: #EEEEEE;
+    padding: 13px;
+}
+.send-text{
+    height: 200px;
+    width: 250px;
+    margin: 20px;
+}
+.fabu{
+    display: none;
+    position: fixed;
+    top:30%;
+    left: 40%;
+    
+    background: #fff;
+    z-index: 99;
+}
+.fabu-head{
+    background: #EEEEEE;
+    padding: 10px;
+}
+.fabu-footer{
+    display: flex;
+    justify-content: space-between;
+    background: #EEEEEE;
+}
+.fabu-text{
+    height: 300px;
+    width: 90%;
+    margin: 20px;
+}
+.fabu-title{
+   
+    width: 90%;
+    margin: 20px;
 }

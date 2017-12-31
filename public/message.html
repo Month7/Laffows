@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>站内信</title>
+<script src="../src/js/jquery.min.js"></script>
+<link rel="stylesheet" href="../src/css/bootstrap.min.css">
+<link href="../src/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--图片更换插件-->
+<link href="../plugins/sitelogo/sitelogo.css" rel="stylesheet">
+<script src="../plugins/cropper/cropper.min.js"></script>
+<script src="../plugins/sitelogo/sitelogo.js"></script>
+<script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+<style>
+    a{
+        color: black;
+    }
+</style>
+<!---->
+</head>
+<body  style="background:#EEEEEE">
+     <!--顶部导航-->
+     <div class="header">
+            <div class="container">
+                <a class="logo" href="index.html" class="selected">
+                    Laffows++
+                </a>
+                <a href="home.html" >个人中心</a>
+                <a id="nav-study" href="#">学习</a>
+                <div class="nav-study-children">
+                    <a href="classroom.html">空教室查询</a>
+                    <a href="selfStudy.html">约自习</a>
+                </div>
+                <a id="nav-friends" href="#">交友</a>
+                <div id="nav-friends-children">
+                    <a href="chat.html">下课聊</a>
+                    <a href="love.html">表白墙</a>
+                </div>
+                <a href="work.html">求职</a>
+                <div class="pull-right">
+                        <a href="message.html" class="selected">消息(<span class="messageNum">4</span>)</a>
+                        <a href="home.html" id="index-change">
+                            <img src="../images/head.jpg" alt="个人头像"/>
+                            <span>Month</span>
+                        </a>
+                        <a href="index.html" class="exit">
+                            <img src="../images/退出.png" title="退出">
+                        </a>
+                    </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    <!--主体内容-->
+    <div class="container" style="display:flex">
+        <div style="background:#fff;padding:10px;">
+                <a href="#">
+                    <div style="border-bottom:solid 2px #04C3E0">
+                        <div class="letter-intro">朋友私信</div>
+                    </div>
+                    <table class="letter-list">
+                            <tr>
+                                <td><img src="../images/head.jpg"></td>
+                                <td class="letter-message">
+                                    <div>阿里hr</div>
+                                    <div>欢迎加入阿里!</div>
+                                </td>
+                                <td>
+                                     <div>2017/12/31</div>
+                                     <div>回复 删除</div>
+                                </td>
+                            </tr>
+                    </table>
+                    <table class="letter-list">
+                            <tr>
+                                <td><img src="../images/head.jpg"></td>
+                                <td class="letter-message">
+                                    <div>腾讯音乐</div>
+                                    <div>同学您好，恭喜您顺利通过腾讯音乐娱乐集团的筛选，获得...</div>
+                                </td>
+                                <td>
+                                     <div>2017/12/31</div>
+                                     <div>回复 删除</div>
+                                </td>
+                            </tr>
+                    </table>
+                    <table class="letter-list">
+                            <tr>
+                                <td><img src="../images/head.jpg"></td>
+                                <td class="letter-message">
+                                    <div>网易</div>
+                                    <div>欢迎您加入网易大家庭!</div>
+                                </td>
+                                <td>
+                                     <div>2017/12/31</div>
+                                     <div>回复 删除</div>
+                                </td>
+                            </tr>
+                    </table>
+                    <table class="letter-list">
+                            <tr>
+                                <td><img src="../images/head.jpg"></td>
+                                <td class="letter-message">
+                                    <div>饿了么网上订餐</div>
+                                    <div>欢迎加入饿了么大前端!</div>
+                                </td>
+                                <td>
+                                     <div>2017/12/31</div>
+                                     <div>回复 删除</div>
+                                </td>
+                            </tr>
+                    </table>
+                </a>
+        </div>
+        <div class="col-sm-3 col-xs-12 part_right" style="margin-top:0">
+                <div class="row text-center inform">
+                    <a href="home.html"><img src="../images/head.jpg" ></a>
+                    <h4 style="font-weight: bold;">Month</h4>
+                    <div class="col-sm-12 my_inform" >
+                        <div class="col-sm-4 col-xs-4">
+                            <div>23</div>
+                            <div class="sort">关注</div>
+
+                        </div>
+                        <div class="col-sm-4 col-xs-4">
+                            <div>111</div>
+                            <div class="sort">粉丝</div>
+                        </div>
+                        <div class="col-sm-4 col-xs-4">
+                            <div>79</div>
+                            <div class="sort">动态</div>
+                        </div>
+                    </div>
+                </div>  
+    </div>
+    <script>
+        $(function(){
+            /**
+     * 头部二级导航条
+     */
+    $.fn.navC=function(){
+        var $study=$("#nav-study");
+        var $drop=$(".nav-study-children");
+        var $friends=$("#nav-friends");
+        var $dropFriends=$("#nav-friends-children");
+        var left=$study.offset().left;
+        var leftF=$friends.offset().left;
+        $drop.css({
+            "left":left
+        });
+        $dropFriends.css({
+            "left":leftF
+        });
+        $study.mouseover(function(){
+            $drop.show();
+        });
+        $study.mouseout(function(){
+            $drop.hide();
+        });
+        $drop.mouseover(function(){
+            $drop.show();
+            $study.addClass("selected");
+        });
+        $drop.mouseout(function(){
+            $drop.hide();
+            $study.removeClass("selected");
+        });
+        $friends.mouseover(function(){
+            $dropFriends.show();
+        });
+        $friends.mouseout(function(){
+            $dropFriends.hide();
+        });
+        $dropFriends.mouseover(function(){
+            $dropFriends.show();
+            $friends.addClass("selected");
+        });
+        $dropFriends.mouseout(function(){
+            $dropFriends.hide();
+            $friends.removeClass("selected");
+        });
+    }
+    $(window).navC();
+    //
+    var test=$(".emptyRooms tbody");
+    $("#emptyRoomSearch").click(function(){
+        for(var i=0;i<30;i++){
+            test.append("<tr><td>2-1-101</td><td>2-1-101</td><td>理论教学室</td><td>2</td><td>77</td></tr>   ")
+        }
+    });
+        })
+    </script>
+</body>
+</html>

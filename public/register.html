@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>注册</title>
+<script src="../src/js/jquery.min.js"></script>
+<link rel="stylesheet" href="../src/css/bootstrap.min.css">
+<link href="../src/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="../src/css/login.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="../plugins/css/register.css" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="../src/js/login.js"></script>
+</head>
+<body>
+    <!--顶部导航-->
+    <div class="header">
+            <div class="container">
+                <a class="logo" href="index.html" class="selected">
+                    Laffows++
+                </a>
+                <a href="home.html" >个人中心</a>
+                <a id="nav-study" href="#">学习</a>
+                <div class="nav-study-children">
+                    <a href="classroom.html">空教室查询</a>
+                    <a href="selfStudy.html">约自习</a>
+                </div>
+                <a id="nav-friends" href="#">交友</a>
+                <div id="nav-friends-children">
+                    <a href="chat.html">下课聊</a>
+                    <a href="love.html">表白墙</a>
+                </div>
+                <a href="#">求职</a>
+                <div class="pull-right">
+                        
+                        <a href="#" id="index-change">
+                           
+                            <span>登录/注册</span>
+                        </a>
+                        
+                    </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    <!--主体内容-->
+    <article class="htmleaf-content">
+            <!-- multistep form -->
+            <form id="msform">
+                <!-- progressbar -->
+                <ul id="progressbar">
+                    <li class="active">账号设置</li>
+                    <li>社交账号</li>
+                    <li>个人详细信息</li>
+                </ul>
+                <!-- fieldsets -->
+                <fieldset>
+                    <h2 class="fs-title">创建你的账号</h2>
+                    <h3 class="fs-subtitle">这是第一步</h3>
+                    <div style="position:relative">
+                        <input type="text" name="phone" placeholder="手机号码" />
+                        <button class="sendEnsure">发送验证码</button>
+                    </div>
+                    <input type="text" name="ensure" placeholder="请输入验证码" />
+                    <input type="password" name="pass" placeholder="密码" />
+                    <input type="password" name="cpass" placeholder="重复密码" />
+                    <input type="button" name="next" class="next action-button" value="下一步" />
+                </fieldset>
+                <fieldset>
+                    <h2 class="fs-title">绑定教务处学生账号</h2>
+                    <h3 class="fs-subtitle">填写你的学生账号</h3>
+                    <input type="text" name="x-weibo" placeholder="学校" />
+                    <input type="text" name="t-weibo" placeholder="用户名" />
+                    <input type="text" name="qq" placeholder="密码" />
+                    <input type="button" name="previous" class="previous action-button" value="上一步" />
+                    <input type="button" name="next" class="next action-button" value="下一步" />
+                </fieldset>
+                <fieldset>
+                    <h2 class="fs-title">个人详细信息</h2>
+                    <h3 class="fs-subtitle">个人详细信息是保密的，不会被泄露</h3>
+                    <input type="text" name="fname" placeholder="昵称" />
+                    <input type="text" name="lname" placeholder="姓名" />
+                    <input type="text" name="phone" placeholder="电话号码" />
+                    <textarea name="address" placeholder="家庭住址"></textarea>
+                    <input type="button" name="previous" class="previous action-button" value="上一步" />
+                    <input type="submit" name="submit" class="submit action-button" value="确定" />
+                </fieldset>
+            </form>
+        
+        </article>
+        <!--页脚-->
+        <div class="footer" style="position:fixed;bottom:0;">
+                <div class="footer_child">
+                    <img src="../images/footer-logo.gif">
+                    <div class="footer_child_right">
+                            <p>
+                                    <a href="index.html">主页</a>
+                                    <span>|</span>
+                                    <a href="#">关于我们</a>
+                                    <span>|</span>
+                                    <a href="#">联系我们</a>
+                            </p>
+                            <p><spe>Laffows++©2017 All Rights Reserved</spe></p>
+                    </div>
+                </div>
+            </div>
+        <script src="../plugins/js/jquery.easing.min.js" type="text/javascript"></script>
+        <script>
+            var current_fs, next_fs, previous_fs;
+	var left, opacity, scale;
+	var animating;
+	$('.next').click(function () {
+	    if (animating)
+	        return false;
+	    animating = true;
+	    current_fs = $(this).parent();
+	    next_fs = $(this).parent().next();
+	    $('#progressbar li').eq($('fieldset').index(next_fs)).addClass('active');
+	    next_fs.show();
+	    current_fs.animate({ opacity: 0 }, {
+	        step: function (now, mx) {
+	            scale = 1 - (1 - now) * 0.2;
+	            left = now * 50 + '%';
+	            opacity = 1 - now;
+	            current_fs.css({ 'transform': 'scale(' + scale + ')' });
+	            next_fs.css({
+	                'left': left,
+	                'opacity': opacity
+	            });
+	        },
+	        duration: 800,
+	        complete: function () {
+	            current_fs.hide();
+	            animating = false;
+	        },
+	        easing: 'easeInOutBack'
+	    });
+	});
+	$('.previous').click(function () {
+	    if (animating)
+	        return false;
+	    animating = true;
+	    current_fs = $(this).parent();
+	    previous_fs = $(this).parent().prev();
+	    $('#progressbar li').eq($('fieldset').index(current_fs)).removeClass('active');
+	    previous_fs.show();
+	    current_fs.animate({ opacity: 0 }, {
+	        step: function (now, mx) {
+	            scale = 0.8 + (1 - now) * 0.2;
+	            left = (1 - now) * 50 + '%';
+	            opacity = 1 - now;
+	            current_fs.css({ 'left': left });
+	            previous_fs.css({
+	                'transform': 'scale(' + scale + ')',
+	                'opacity': opacity
+	            });
+	        },
+	        duration: 800,
+	        complete: function () {
+	            current_fs.hide();
+	            animating = false;
+	        },
+	        easing: 'easeInOutBack'
+	    });
+	});
+	$('.submit').click(function () {
+	    return false;
+	});
+        </script>
+        <script src="../src/js/app.js"></script>
+</body>

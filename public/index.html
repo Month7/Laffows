@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>欢迎来到</title>
+<title>Laffows++</title>
 <script src="../src/js/jquery.min.js"></script>
 <link rel="stylesheet" href="../src/css/bootstrap.min.css">
 <link href="../src/css/style.css" rel="stylesheet" type="text/css" media="all" />	
@@ -29,61 +29,114 @@
                         <a href="chat.html">下课聊</a>
                         <a href="love.html">表白墙</a>
                     </div>
-                    <a href="https://www.nowcoder.com/">求职</a>
-                    <div class="pull-right" id="index-change">
-                        <a href="home.html">
-                            <img src="../images/head.jpg" alt="个人头像"/>
-                            <span>Month</span>
-                        </a>
-                    </div>
+                    <a href="work.html">求职</a>
+                    <div class="pull-right">
+                            <a id="messageA" href="message.html" >消息(<span class="messageNum">4</span>)</a>
+                            <a href="home.html" id="index-change">
+                                <img src="../images/head.jpg" alt="个人头像"/>
+                                <span>Month</span>
+                            </a>
+                            <a href="index.html" class="exit">
+                                <img src="../images/退出.png" title="退出">
+                            </a>
+                        </div>
                     <div style="clear:both"></div>
                 </div>
             </div>
         <!--主体内容-->
-        <div class="index-bg">
-            <div class="htmleaf-demo center">
-			  <a href="javascript:showDialog()" class="current">立刻登录</a>
+        <div class="index-bg container" style="margin:0;padding:0;">
+            <div class="test">
+                    <!--htmleaf-demo-->
+                    <div class="htmleaf-demo center">
+                            <h2>欢迎来到Laffows++</h2>  
+                            <p>快来开始使用吧</p>
+                            <p style="color:red">注册功能尚未实际开放！默认用户名：1密码：1</p>
+                            <a href="javascript:showDialog()" class="current">立刻登录</a>
+                            <a href="register.html" class="current2">免费注册</a>
+                    </div>
+                    <div class="ui-mask" id="mask" onselectstart="return false"></div>
+                    <!--ui-dialog-->
+                    <div class="ui-dialog" id="dialogMove" onselectstart='return false;'>
+                          <div class="ui-dialog-title" id="dialogDrag"  onselectstart="return false;" >
+                              登录通行证
+                              <a class="ui-dialog-closebutton" href="javascript:hideDialog();"></a>
+                          </div>
+                          <div class="ui-dialog-content">
+                              <div class="ui-dialog-l40 ui-dialog-pt15">
+                                  <input class="ui-dialog-input ui-dialog-input-username" type="input" placeholder="手机/邮箱/用户名" />
+                              </div>
+                              <div class="ui-dialog-l40 ui-dialog-pt15">
+                                  <input class="ui-dialog-input ui-dialog-input-password" type="input" placeholder="密码" />
+                              </div>
+                              <div class="ui-dialog-l40">
+                                  <a href="#">忘记密码</a>
+                              </div>
+                              <div>
+                                  <a class="ui-dialog-submit" href="#" id="signin">登录</a>
+                              </div>
+                              <div class="ui-dialog-l40">
+                                  <a href="register.html">立即注册</a>
+                              </div>
+                          </div>
+                    </div> <!--ui-dialog-->
             </div>
-            <div class="ui-mask" id="mask" onselectstart="return false"></div>
-	<div class="ui-dialog" id="dialogMove" onselectstart='return false;'>
-		<div class="ui-dialog-title" id="dialogDrag"  onselectstart="return false;" >
-			登录通行证
-			<a class="ui-dialog-closebutton" href="javascript:hideDialog();"></a>
-		</div>
-		<div class="ui-dialog-content">
-			<div class="ui-dialog-l40 ui-dialog-pt15">
-				<input class="ui-dialog-input ui-dialog-input-username" type="input" placeholder="手机/邮箱/用户名" />
-			</div>
-			<div class="ui-dialog-l40 ui-dialog-pt15">
-				<input class="ui-dialog-input ui-dialog-input-password" type="input" placeholder="密码" />
-			</div>
-			<div class="ui-dialog-l40">
-				<a href="#">忘记密码</a>
-			</div>
-			<div>
-				<a class="ui-dialog-submit" href="#" id="signin">登录</a>
-			</div>
-			<div class="ui-dialog-l40">
-				<a href="#">立即注册</a>
-			</div>
-		</div>
+        </div>
 	</div>
+    </div>
+    
+    <div style="clear:both"></div>
+       <!--页脚-->
+       <div class="footer" style="position:fixed;bottom:0;">
+            <div class="footer_child">
+                <img src="../images/footer-logo.gif">
+                <div class="footer_child_right">
+                        <p>
+                                <a href="index.html">主页</a>
+                                <span>|</span>
+                                <a href="#">关于我们</a>
+                                <span>|</span>
+                                <a href="#">联系我们</a>
+                        </p>
+                        <p><spe>Laffows++©2017 All Rights Reserved</spe></p>
+                </div>
+            </div>
         </div>
         <script type="text/javascript">
         $(function(){
+            function check(){
             var flag=sessionStorage.getItem("flag");
-            if(flag!="true"){
+            if(flag==undefined||flag!="true"){                                      //未登录
                 $("#index-change span").text("登录");
                 $("#index-change img").hide();
+                $("#messageA").hide();
                 $(".current").show();
+                $(".current2").show();
+                $(".exit").hide();
             }
-            if(flag=="true"){
+            if(flag=="true"){                                       //已登录
                 $("#index-change span").text("Month");
                 $("#index-change img").show();
                 $(".current").hide();
+                $(".current2").hide();
+                $("#messageA").show();
+                $(".exit").show();
             }
-			var width=$(window).width()-200;	
-            $(".current").css("left",width/2);
+            }
+            check();
+            setInterval(function(){
+                check();
+            },1000);
+            function setCenter(){
+                var width=$(window).innerWidth()-150;	
+                $(".current").css("left",width/2);
+                $(".current2").css("left",width/2+80);
+            }
+            setCenter();
+            function cal(){
+                var height=$(".index-bg").height();
+                $(".test").css("height",height);
+            }
+            cal();
             $("#signin").click(function(){
                 var $username=$(".ui-dialog-input-username").val();
                 var $password=$(".ui-dialog-input-password").val();

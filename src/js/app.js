@@ -1,4 +1,14 @@
 $(function(){
+    function exit(){              //退出登录
+        $(".exit").click(function(){
+            sessionStorage.removeItem("username");
+            sessionStorage.removeItem("password");
+            sessionStorage.removeItem("flag");
+        });
+    }
+    if($(".exit").length>0){
+        exit();
+    }
     /**
      * 头部二级导航条
      */

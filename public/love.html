@@ -13,10 +13,10 @@
     <!--顶部导航-->
     <div class="header">
             <div class="container">
-                <a class="logo" href="index.html">
+                <a class="logo" href="index.html" class="selected">
                     Laffows++
                 </a>
-                <a href="home.html" >个人中心</a>
+                <a href="home.html">个人中心</a>
                 <a id="nav-study" href="#">学习</a>
                 <div class="nav-study-children">
                     <a href="classroom.html">空教室查询</a>
@@ -27,13 +27,17 @@
                     <a href="chat.html">下课聊</a>
                     <a href="love.html">表白墙</a>
                 </div>
-                <a href="https://www.nowcoder.com/">求职</a>
+                <a href="work.html">求职</a>
                 <div class="pull-right">
-                    <a href="home.html">
-                        <img src="../images/head.jpg" alt="个人头像"/>
-                        Month
-                    </a>
-                </div>
+                        <a href="message.html" >消息(<span class="messageNum">4</span>)</a>
+                        <a href="home.html" id="index-change">
+                            <img src="../images/head.jpg" alt="个人头像"/>
+                            <span>Month</span>
+                        </a>
+                        <a href="index.html" class="exit">
+                            <img src="../images/退出.png" title="退出">
+                        </a>
+                    </div>
                 <div style="clear:both"></div>
             </div>
         </div>
@@ -252,6 +256,7 @@
                 </div>
             </div>
         </div>
+        
     <script src="../src/js/app.js"></script>
 </body>
 </html>
