@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>欢迎来到</title>
+<title>Laffows++</title>
 <script src="src/js/jquery.min.js"></script>
 <link rel="stylesheet" href="src/css/bootstrap.min.css">
 <link href="src/css/style.css" rel="stylesheet" type="text/css" media="all" />	
@@ -11,202 +11,255 @@
 <script src="src/js/login.js"></script>
 </head>
 <body>
-       <!--顶部导航-->
-          <!--顶部导航-->
-          <div class="header">
-                <div class="container">
-                    <a class="logo" href="index.html" class="selected">
-                        Laffows++
-                    </a>
-                    <a href="public/home.html" >个人中心</a>
-                    <a id="nav-study" href="#">学习</a>
-                    <div class="nav-study-children">
-                        <a href="public/classroom.html">空教室查询</a>
-                        <a href="public/selfStudy.html">约自习</a>
-                    </div>
-                    <a id="nav-friends" href="#">交友</a>
-                    <div id="nav-friends-children">
-                        <a href="public/chat.html">下课聊</a>
-                        <a href="public/love.html">表白墙</a>
-                    </div>
-                    <a href="https://www.nowcoder.com/">求职</a>
-                    <div class="pull-right" id="index-change">
-                        <a href="public/home.html">
-                            <img src="images/head.jpg" alt="个人头像"/>
-                            <span>Month</span>
-                        </a>
-                    </div>
-                    <div style="clear:both"></div>
-                </div>
-            </div>
-        <!--主体内容-->
-        <div class="index-bg">
-            <div class="htmleaf-demo center">
-			  <a href="javascript:showDialog()" class="current">立刻登录</a>
-            </div>
-            <div class="ui-mask" id="mask" onselectstart="return false"></div>
-	<div class="ui-dialog" id="dialogMove" onselectstart='return false;'>
-		<div class="ui-dialog-title" id="dialogDrag"  onselectstart="return false;" >
-			登录通行证
-			<a class="ui-dialog-closebutton" href="javascript:hideDialog();"></a>
-		</div>
-		<div class="ui-dialog-content">
-			<div class="ui-dialog-l40 ui-dialog-pt15">
-				<input class="ui-dialog-input ui-dialog-input-username" type="input" placeholder="手机/邮箱/用户名" />
-			</div>
-			<div class="ui-dialog-l40 ui-dialog-pt15">
-				<input class="ui-dialog-input ui-dialog-input-password" type="input" placeholder="密码" />
-			</div>
-			<div class="ui-dialog-l40">
-				<a href="#">忘记密码</a>
-			</div>
-			<div>
-				<a class="ui-dialog-submit" href="#" id="signin">登录</a>
-			</div>
-			<div class="ui-dialog-l40">
-				<a href="#">立即注册</a>
-			</div>
-		</div>
-	</div>
-        </div>
-        <script type="text/javascript">
-        $(function(){
-            var flag=sessionStorage.getItem("flag");
-            if(flag!="true"){
-                $("#index-change span").text("登录");
-                $("#index-change img").hide();
-                $(".current").show();
-            }
-            if(flag=="true"){
-                $("#index-change span").text("Month");
-                $("#index-change img").show();
-                $(".current").hide();
-            }
-			var width=$(window).width()-200;	
-            $(".current").css("left",width/2);
-            $("#signin").click(function(){
-                var $username=$(".ui-dialog-input-username").val();
-                var $password=$(".ui-dialog-input-password").val();
-                sessionStorage.setItem("username",$username);
-                sessionStorage.setItem("password",$password);
-                if($username=="1"&&$password=="1"){
-                    alert("登录成功！");
-                    sessionStorage.setItem("flag","true");
-                    window.location.href="public/home.html";
-                }
-            });
-            $(".header a").click(function(){
-                var $username=sessionStorage.getItem("username");
-                var $password=sessionStorage.getItem("password");
-                if($username!="1"||$password!="1"){
-                    alert("请先登录!");
-                    return false;
-                }
-            })
-		})
-            var dialogInstace , onMoveStartId;	//	用于记录当前可拖拽的对象
-        
-            // var zIndex = 9000;
-    
-            //	获取元素对象	
-            function g(id){return document.getElementById(id);}
-    
-            //	自动居中元素（el = Element）
-            function autoCenter( el ){
-                var bodyW = document.documentElement.clientWidth;
-                var bodyH = document.documentElement.clientHeight;
-    
-                var elW = el.offsetWidth;
-                var elH = el.offsetHeight;
-    
-                el.style.left = (bodyW-elW)/2 + 'px';
-                el.style.top = (bodyH-elH)/2 + 'px';
-                
-            }
-    
-            //	自动扩展元素到全部显示区域
-            function fillToBody( el ){
-                el.style.width  = document.documentElement.clientWidth  +'px';
-                el.style.height = document.documentElement.clientHeight + 'px';
-            }
-    
-            //	Dialog实例化的方法
-            function Dialog( dragId , moveId ){
-    
-                var instace = {} ;
-    
-                instace.dragElement  = g(dragId);	//	允许执行 拖拽操作 的元素
-                instace.moveElement  = g(moveId);	//	拖拽操作时，移动的元素
-    
-                instace.mouseOffsetLeft = 0;			//	拖拽操作时，移动元素的起始 X 点
-                instace.mouseOffsetTop = 0;			//	拖拽操作时，移动元素的起始 Y 点
-    
-                instace.dragElement.addEventListener('mousedown',function(e){
-    
-                    var e = e || window.event;
-    
-                    dialogInstace = instace;
-                    instace.mouseOffsetLeft = e.pageX - instace.moveElement.offsetLeft ;
-                    instace.mouseOffsetTop  = e.pageY - instace.moveElement.offsetTop ;
-                    
-                    // instace.moveElement.style.zIndex = zIndex ++;
-                })
-    
-                return instace;
-            }
-    
-            //	在页面中侦听 鼠标弹起事件
-            document.onmouseup = function(e){
-                
-                dialogInstace = false;
-                clearInterval(onMoveStartId);
-    
-            }
-    
-            //	在页面中侦听 鼠标移动事件
-            document.onmousemove = function(e) {
-                var e = e || window.event;
-                var instace = dialogInstace;
-                if (instace) {
-                    
-                    var maxX = document.documentElement.clientWidth -  instace.moveElement.offsetWidth;
-                    var maxY = document.documentElement.clientHeight - instace.moveElement.offsetHeight ;
-    
-                    instace.moveElement.style.left = Math.min( Math.max( ( e.pageX - instace.mouseOffsetLeft) , 0 ) , maxX) + "px";
-                    instace.moveElement.style.top  = Math.min( Math.max( ( e.pageY - instace.mouseOffsetTop ) , 0 ) , maxY) + "px";
-                }
-                if(e.stopPropagation) {
-                    e.stopPropagation();
-                } else {
-                    e.cancelBubble = true;
-                }
-            };
-    
-            //	拖拽对话框实例对象
-            Dialog('dialogDrag','dialogMove');
-    
-            function onMoveStart(){
-    
-            }
-    
-    
-            //	重新调整对话框的位置和遮罩，并且展现
-            function showDialog(){
-                g('dialogMove').style.display = 'block';
-                g('mask').style.display = 'block';
-                autoCenter( g('dialogMove') );
-                fillToBody( g('mask') );
-            }
-    
-            //	关闭对话框
-            function hideDialog(){
-                g('dialogMove').style.display = 'none';
-                g('mask').style.display = 'none';
-            }
-    
-            //	侦听浏览器窗口大小变化
-            //window.onresize = showDialog;
-        </script>
-        <script src="src/js/app.js"></script>
-</body>
-</html>
+        <!--顶部导航-->
+           <!--顶部导航-->
+           <div class="header">
+                 <div class="container">
+                     <a class="logo" href="index.html" class="selected">
+                         Laffows++
+                     </a>
+                     <a href="public/home.html" >个人中心</a>
+                     <a id="nav-study" href="#">学习</a>
+                     <div class="nav-study-children">
+                         <a href="public/classroom.html">空教室查询</a>
+                         <a href="public/selfStudy.html">约自习</a>
+                     </div>
+                     <a id="nav-friends" href="#">交友</a>
+                     <div id="nav-friends-children">
+                         <a href="public/chat.html">下课聊</a>
+                         <a href="public/love.html">表白墙</a>
+                     </div>
+                     <a href="work.html">求职</a>
+                     <div class="pull-right">
+                             <a id="messageA" href="public/message.html" >消息(<span class="messageNum">4</span>)</a>
+                             <a href="public/home.html" id="index-change">
+                                 <img src="images/head.jpg" alt="个人头像"/>
+                                 <span>Month</span>
+                             </a>
+                             <a href="public/index.html" class="exit">
+                                 <img src="images/退出.png" title="退出">
+                             </a>
+                         </div>
+                     <div style="clear:both"></div>
+                 </div>
+             </div>
+         <!--主体内容-->
+         <div class="index-bg container" style="margin:0;padding:0;">
+             <div class="test">
+                     <!--htmleaf-demo-->
+                     <div class="htmleaf-demo center">
+                             <h2>欢迎来到Laffows++</h2>  
+                             <p>快来开始使用吧</p>
+                             <p style="color:red">注册功能尚未实际开放！默认用户名：1密码：1</p>
+                             <a href="javascript:showDialog()" class="current">立刻登录</a>
+                             <a href="public/register.html" class="current2">免费注册</a>
+                     </div>
+                     <div class="ui-mask" id="mask" onselectstart="return false"></div>
+                     <!--ui-dialog-->
+                     <div class="ui-dialog" id="dialogMove" onselectstart='return false;'>
+                           <div class="ui-dialog-title" id="dialogDrag"  onselectstart="return false;" >
+                               登录通行证
+                               <a class="ui-dialog-closebutton" href="javascript:hideDialog();"></a>
+                           </div>
+                           <div class="ui-dialog-content">
+                               <div class="ui-dialog-l40 ui-dialog-pt15">
+                                   <input class="ui-dialog-input ui-dialog-input-username" type="input" placeholder="手机/邮箱/用户名" />
+                               </div>
+                               <div class="ui-dialog-l40 ui-dialog-pt15">
+                                   <input class="ui-dialog-input ui-dialog-input-password" type="input" placeholder="密码" />
+                               </div>
+                               <div class="ui-dialog-l40">
+                                   <a href="#">忘记密码</a>
+                               </div>
+                               <div>
+                                   <a class="ui-dialog-submit" href="#" id="signin">登录</a>
+                               </div>
+                               <div class="ui-dialog-l40">
+                                   <a href="public/register.html">立即注册</a>
+                               </div>
+                           </div>
+                     </div> <!--ui-dialog-->
+             </div>
+         </div>
+     </div>
+     </div>
+     
+     <div style="clear:both"></div>
+        <!--页脚-->
+        <div class="footer" style="position:fixed;bottom:0;">
+             <div class="footer_child">
+                 <img src="images/footer-logo.gif">
+                 <div class="footer_child_right">
+                         <p>
+                                 <a href="index.html">主页</a>
+                                 <span>|</span>
+                                 <a href="#">关于我们</a>
+                                 <span>|</span>
+                                 <a href="#">联系我们</a>
+                         </p>
+                         <p><spe>Laffows++©2017 All Rights Reserved</spe></p>
+                 </div>
+             </div>
+         </div>
+         <script type="text/javascript">
+         $(function(){
+             function check(){
+             var flag=sessionStorage.getItem("flag");
+             if(flag==undefined||flag!="true"){                                      //未登录
+                 $("#index-change span").text("登录");
+                 $("#index-change img").hide();
+                 $("#messageA").hide();
+                 $(".current").show();
+                 $(".current2").show();
+                 $(".exit").hide();
+             }
+             if(flag=="true"){                                       //已登录
+                 $("#index-change span").text("Month");
+                 $("#index-change img").show();
+                 $(".current").hide();
+                 $(".current2").hide();
+                 $("#messageA").show();
+                 $(".exit").show();
+             }
+             }
+             check();
+             setInterval(function(){
+                 check();
+             },1000);
+             function setCenter(){
+                 var width=$(window).innerWidth()-150;	
+                 $(".current").css("left",width/2);
+                 $(".current2").css("left",width/2+80);
+             }
+             setCenter();
+             function cal(){
+                 var height=$(".index-bg").height();
+                 $(".test").css("height",height);
+             }
+             cal();
+             $("#signin").click(function(){
+                 var $username=$(".ui-dialog-input-username").val();
+                 var $password=$(".ui-dialog-input-password").val();
+                 sessionStorage.setItem("username",$username);
+                 sessionStorage.setItem("password",$password);
+                 if($username=="1"&&$password=="1"){
+                     alert("登录成功！");
+                     sessionStorage.setItem("flag","true");
+                     window.location.href="public/home.html";
+                 }
+             });
+             $(".header a").click(function(){
+                 var $username=sessionStorage.getItem("username");
+                 var $password=sessionStorage.getItem("password");
+                 if($username!="1"||$password!="1"){
+                     alert("请先登录!");
+                     return false;
+                 }
+             })
+         })
+             var dialogInstace , onMoveStartId;	//	用于记录当前可拖拽的对象
+         
+             // var zIndex = 9000;
+     
+             //	获取元素对象	
+             function g(id){return document.getElementById(id);}
+     
+             //	自动居中元素（el = Element）
+             function autoCenter( el ){
+                 var bodyW = document.documentElement.clientWidth;
+                 var bodyH = document.documentElement.clientHeight;
+     
+                 var elW = el.offsetWidth;
+                 var elH = el.offsetHeight;
+     
+                 el.style.left = (bodyW-elW)/2 + 'px';
+                 el.style.top = (bodyH-elH)/2 + 'px';
+                 
+             }
+     
+             //	自动扩展元素到全部显示区域
+             function fillToBody( el ){
+                 el.style.width  = document.documentElement.clientWidth  +'px';
+                 el.style.height = document.documentElement.clientHeight + 'px';
+             }
+     
+             //	Dialog实例化的方法
+             function Dialog( dragId , moveId ){
+     
+                 var instace = {} ;
+     
+                 instace.dragElement  = g(dragId);	//	允许执行 拖拽操作 的元素
+                 instace.moveElement  = g(moveId);	//	拖拽操作时，移动的元素
+     
+                 instace.mouseOffsetLeft = 0;			//	拖拽操作时，移动元素的起始 X 点
+                 instace.mouseOffsetTop = 0;			//	拖拽操作时，移动元素的起始 Y 点
+     
+                 instace.dragElement.addEventListener('mousedown',function(e){
+     
+                     var e = e || window.event;
+     
+                     dialogInstace = instace;
+                     instace.mouseOffsetLeft = e.pageX - instace.moveElement.offsetLeft ;
+                     instace.mouseOffsetTop  = e.pageY - instace.moveElement.offsetTop ;
+                     
+                     // instace.moveElement.style.zIndex = zIndex ++;
+                 })
+     
+                 return instace;
+             }
+     
+             //	在页面中侦听 鼠标弹起事件
+             document.onmouseup = function(e){
+                 
+                 dialogInstace = false;
+                 clearInterval(onMoveStartId);
+     
+             }
+     
+             //	在页面中侦听 鼠标移动事件
+             document.onmousemove = function(e) {
+                 var e = e || window.event;
+                 var instace = dialogInstace;
+                 if (instace) {
+                     
+                     var maxX = document.documentElement.clientWidth -  instace.moveElement.offsetWidth;
+                     var maxY = document.documentElement.clientHeight - instace.moveElement.offsetHeight ;
+     
+                     instace.moveElement.style.left = Math.min( Math.max( ( e.pageX - instace.mouseOffsetLeft) , 0 ) , maxX) + "px";
+                     instace.moveElement.style.top  = Math.min( Math.max( ( e.pageY - instace.mouseOffsetTop ) , 0 ) , maxY) + "px";
+                 }
+                 if(e.stopPropagation) {
+                     e.stopPropagation();
+                 } else {
+                     e.cancelBubble = true;
+                 }
+             };
+     
+             //	拖拽对话框实例对象
+             Dialog('dialogDrag','dialogMove');
+     
+             function onMoveStart(){
+     
+             }
+     
+     
+             //	重新调整对话框的位置和遮罩，并且展现
+             function showDialog(){
+                 g('dialogMove').style.display = 'block';
+                 g('mask').style.display = 'block';
+                 autoCenter( g('dialogMove') );
+                 fillToBody( g('mask') );
+             }
+     
+             //	关闭对话框
+             function hideDialog(){
+                 g('dialogMove').style.display = 'none';
+                 g('mask').style.display = 'none';
+             }
+     
+             //	侦听浏览器窗口大小变化
+             //window.onresize = showDialog;
+         </script>
+         <script src="src/js/app.js"></script>
+ </body>
+ </html>

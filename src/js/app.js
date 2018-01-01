@@ -125,14 +125,28 @@ $(function(){
             $contron.hide();
         });
     }
+    var flag=true;
     function interested(){
         $(".like").click(function(){
-            var num=$(this).parents(".studyMessage").find(".likedPeople").text();
-            num++;
-            $(this).parents(".studyMessage").find(".likedPeople").text(num);
+          
+            if(flag){
+                
+                var num=$(this).parents(".studyMessage").find(".likedPeople").text();
+                console.log(num);
+                num++;
+                console.log(num);
+                $(this).parents(".studyMessage").find(".likedPeople").text(num);
+                flag=false;
+            }
+            else{
+                            var num=$(this).parents(".studyMessage").find(".likedPeople").text();
+                            num--;
+                            $(this).parents(".studyMessage").find(".likedPeople").text(num);
+                            flag=true;
+                        }
         });
     }
-    if($(".like").length>0){
-        interested();
-    }
+    // if($(".like").length>0){
+    //     interested();
+    // }
 }(jQuery));

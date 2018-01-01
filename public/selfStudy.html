@@ -234,6 +234,22 @@
                         $(".zhezhao").show();
                         $(".fabu").show();
                     });
+                    //此处存在重复点赞问题 有办法解决 不过比较复杂
+                    $(".studyList").on("click",".like",function(){
+                            var cs=1;
+                            if(cs%2==0){
+                                var num=$(this).parents(".studyMessage").find(".likedPeople").text();
+                                num--;
+                                $(this).parents(".studyMessage").find(".likedPeople").text(num);
+                                cs++;
+                            }
+                            if(cs%2!=0){
+                                var num=$(this).parents(".studyMessage").find(".likedPeople").text();
+                                num++;
+                                $(this).parents(".studyMessage").find(".likedPeople").text(num);
+                                cs++;
+                            }
+                    })
                     $(".send").click(function(){
                         var text=$(".fabu-text").val();
                         var title=$(".fabu-title").val();
