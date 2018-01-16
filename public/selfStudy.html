@@ -12,6 +12,18 @@
     <div class="zhezhao">
 
     </div>
+    <div class="sendMessage">
+        <div class="send-head">发私信</div>
+        <div>
+            发给     <span class="">        亚丝娜</span>
+            <br>
+            <textarea class="send-text"></textarea>
+        </div>
+        <div class="send-footer">
+            <button>取消</button>
+            <button>发送</button>
+        </div>
+    </div>
     <!--顶部导航-->
     <div class="header">
             <div class="container">
@@ -72,18 +84,7 @@
             <input type="checkbox">空闲教室
             <button>查询</button>
             <button class="publish">发布预约</button>
-            <div class="sendMessage">
-                <div class="send-head">发私信</div>
-                <div>
-                    发给     <span class="">        亚丝娜</span>
-                    <br>
-                    <textarea class="send-text"></textarea>
-                </div>
-                <div class="send-footer">
-                    <button>取消</button>
-                    <button>发送</button>
-                </div>
-            </div>
+            
            
         </div>
         <!--筛选结果-->
@@ -154,7 +155,7 @@
                 </div>
             </div>
         </div>
-        <!---->
+        <!--发布-->
         <div class="fabu">
             <div class="fabu-head">
                 发布新预约
@@ -213,26 +214,48 @@
         </div>
         <script>
                 $(function(){
-                    
+                    /**
+                     * @author yin zheng
+                     * 2018/1/17
+                     * 修复历史遗留问题
+                     * 以后再重构
+                    */
+                    var $zhezhao=$(".zhezhao");                   //全局遮罩层
+                    var $sendMessage=$(".sendMessage");           //站内信
+                    var $fabu=$(".fabu");                         //发布新消息
+                    function adjust(){
+                        var height=$sendMessage.height();
+                        var width=$sendMessage.width();
+                        $sendMessage.css({
+                            "margin-left":-width/2,
+                            "margin-top":-height/2
+                        });
+                        height=$fabu.height();
+                        width=$fabu.width();
+                        $fabu.css({
+                            "margin-left":-width/2,
+                            "margin-top":-height/2
+                        });
+                    }
+                    adjust();
+                    window.onresize=function(){
+                        adjust();
+                    }
                     $(".contact").click(function(){
-                        $(".zhezhao").show();
-                        $(".sendMessage").show();
+                        $zhezhao.show();
+                        $sendMessage.show();
                     });
                     $(".send-footer button").click(function(){
-                        $(".zhezhao").hide();
-                        $(".sendMessage").hide();
+                        $zhezhao.hide();
+                        $sendMessage.hide();
                     });
-                    // $(window).click(function(){
-                    //     $(".zhezhao").hide();
-                    //     $(".sendMessage").hide();
-                    // })
                     $(".quxiao").click(function(){
-                        $(".zhezhao").show();
-                        $(".fabu").show();
+                        $zhezhao.hide();
+                        $fabu.hide();
                     })
                     $(".publish").click(function(){
-                        $(".zhezhao").show();
-                        $(".fabu").show();
+                        $zhezhao.show();
+                        $fabu.show();
                     });
                     //此处存在重复点赞问题 有办法解决 不过比较复杂
                     $(".studyList").on("click",".like",function(){
@@ -254,7 +277,7 @@
                         var text=$(".fabu-text").val();
                         var title=$(".fabu-title").val();
                         $(".studyList").append('<div class="col-md-3 studyMessage"><div class="sM-title">'+title+'</div><div class="sM-text">'+text+'</div><div>已有<span class="likedPeople">0</span>人感兴趣</div><div>发布者：<span class="sM-author">Month</span></div><div>地点：<span class="sM-address" tid="2">16-102</span></div><div>时间：<span class="sM-time">2018/1/1</span></div><hr><div class="btnGroup"><button class="like">感兴趣</button><button class="contact">与TA联系</button></div></div>');
-                        $(".zhezhao").hide();
+                        $zhezhao.hide();
                         $(".fabu").hide();
                     });
                 })

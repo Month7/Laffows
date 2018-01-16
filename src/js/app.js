@@ -54,6 +54,9 @@ $(function(){
             $friends.removeClass("selected");
         });
     }
+    $(window).resize(function(){
+        $(window).navC();
+    });
     $(window).navC();
     //
     var test=$(".emptyRooms tbody");
@@ -99,7 +102,6 @@ $(function(){
             adjust();
         });
     }
-   
     /**
      * 更多操作大小控制
      */
@@ -120,8 +122,7 @@ $(function(){
         $contron.mouseover(function(){
             $(this).show();
         })
-        $main.mouseleave(function(){ 
-          
+        $main.mouseleave(function(){      
             $contron.hide();
         });
     }
@@ -139,14 +140,12 @@ $(function(){
                 flag=false;
             }
             else{
-                            var num=$(this).parents(".studyMessage").find(".likedPeople").text();
-                            num--;
-                            $(this).parents(".studyMessage").find(".likedPeople").text(num);
-                            flag=true;
-                        }
+                var num=$(this).parents(".studyMessage").find(".likedPeople").text();
+                num--;
+                $(this).parents(".studyMessage").find(".likedPeople").text(num);
+                flag=true;
+            }
         });
     }
-    // if($(".like").length>0){
-    //     interested();
-    // }
 }(jQuery));
+console.log(window.innerWidth);

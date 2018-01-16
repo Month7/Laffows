@@ -597,10 +597,9 @@ h3{
 /*发送信息窗口*/
 .sendMessage{
     display: none;
-    position: fixed;
-    top:30%;
-    left: 40%;
-    
+    position: absolute;
+    top:50%;
+    left:50%;
     background: #fff;
     z-index: 99;
 }
@@ -630,11 +629,11 @@ h3{
     margin: 20px;
 }
 .fabu{
-    display: none;
-    position: fixed;
-    top:30%;
-    left: 40%;
     
+    display: none;
+    position: absolute;
+    top:50%;
+    left: 50%;
     background: #fff;
     z-index: 99;
 }
@@ -644,6 +643,7 @@ h3{
 }
 .fabu-footer{
     display: flex;
+    padding: 10px;
     justify-content: space-between;
     background: #EEEEEE;
 }
